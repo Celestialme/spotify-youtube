@@ -1,0 +1,21 @@
+{
+    "name": "YouFy",
+    "version": "1.0.0",
+    "description": "pause spotify when youtube playing and vice versa",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts" : [{
+        "matches" : ["*://*.spotify.com/*"],
+        "js" : ["spotify.js"]
+    },
+   {
+        "matches" : ["*://*.youtube.com/*" ],
+        "js" : ["youtube.js"]
+    }
+],
+ 
+    "permissions": [ "tabs","activeTab"],
+    "host_permissions": ["*://*.youtube.com/*" , "*://*.spotify.com/*"],
+    "manifest_version": 3
+}
