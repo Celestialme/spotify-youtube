@@ -1,0 +1,44 @@
+<style>
+    *{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+    }
+    div{
+     width: 100px;
+     height: 50px;
+     background-color: #4ed164;
+     position: relative;
+     border-radius: 25px;
+    }
+     label{
+     position: absolute;
+     top: 0;
+     left: 0;
+     margin:2px;
+     width: 46px;
+     height: 46px;
+     border-radius: 50%;
+     cursor: pointer;
+     background-color: white;
+     transition: .3s;
+     }
+     input:checked + label{
+       
+     transform: translateX(50px);
+     }
+ </style>
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+        
+   <!-- create animated swith -->
+    <div class="switch">
+        <input type="checkbox" hidden id="switch">
+        <label for="switch"></label>
+    </div>
+
+</body>
+</html>
+<script src="./popup.js"></script>

@@ -15,7 +15,11 @@
     }
 ],
  
-    "permissions": [ "tabs","activeTab"],
+    "action": {
+        "default_popup": "popup.html",
+        "default_title":"on/off"
+    },
+    "permissions": [ "tabs","activeTab","storage"],
     "host_permissions": ["*://*.youtube.com/*" , "*://*.spotify.com/*"],
     "manifest_version": 3
 }
