@@ -9,24 +9,51 @@
      height: 50px;
      background-color: #4ed164;
      position: relative;
-     border-radius: 25px;
+     
     }
      label{
-     position: absolute;
-     top: 0;
-     left: 0;
-     margin:2px;
-     width: 46px;
-     height: 46px;
-     border-radius: 50%;
-     cursor: pointer;
-     background-color: white;
-     transition: .3s;
+        position: absolute;
+    top: 0;
+    left: 0;
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+    /* animation: move .3s ease-in-out forwards reverse; */
+    cursor: pointer;
+    background-color: white;
+   
      }
      input:checked + label{
-       
-     transform: translateX(50px);
+        animation: move1 .4s ease-in-out forwards;  
+     
      }
+     input:not(:checked) + label{
+        animation: move2 .4s ease-in-out forwards  
+     
+     }
+     @keyframes move1{
+        0%{
+            transform: translateX(0);
+        }
+        40%,70%{
+            border-radius: 50%;
+        }
+        100%{
+            transform: translateX(50px);
+        }
+     }
+     @keyframes move2{
+        0%{
+            transform:translateX(50px); 
+        }
+        40%,70%{
+            border-radius: 50%;
+        }
+        100%{
+            transform: translateX(0);
+        }
+     }
+     
  </style>
 <!DOCTYPE html>
 <html lang="en">
