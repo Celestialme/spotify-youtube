@@ -10,6 +10,12 @@ const sleep = (ms) => {
    
 
     window.onload = async function()  {
+        window.addEventListener("keydown",async (e) => {
+            if(e.code == (await chrome.storage.local.get('hotkey')).hotkey){
+               //send message to background script
+               chrome.runtime.sendMessage({type:"toggle"})
+            }
+      })
 
 do {
     await sleep(2000)

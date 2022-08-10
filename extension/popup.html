@@ -4,67 +4,39 @@
      padding: 0;
      box-sizing: border-box;
     }
-    div{
-     width: 100px;
-     height: 50px;
-     background-color: #4ed164;
-     position: relative;
-     
+    body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:150px;
+    height:150px;
     }
-     label{
-        position: absolute;
-    top: 0;
-    left: 0;
-    margin: 3px;
-    width: 44px;
-    height: 44px;
-    /* animation: move .3s ease-in-out forwards reverse; */
-    cursor: pointer;
-    background-color: white;
-        border-radius: 5px;
-     }
-     input:checked + label{
-        animation: move1 .4s ease-in-out forwards;  
-     
-     }
-     input:not(:checked) + label{
-        animation: move2 .4s ease-in-out forwards  
-     
-     }
-     @keyframes move1{
-        0%{
-            transform: translateX(0);
-        }
-        40%,70%{
-            border-radius: 50%;
-        }
-        100%{
-            transform: translateX(50px);
-        }
-     }
-     @keyframes move2{
-        0%{
-            transform:translateX(50px); 
-        }
-        40%,70%{
-            border-radius: 50%;
-        }
-        100%{
-            transform: translateX(0);
-        }
-     }
-     
+
  </style>
 <!DOCTYPE html>
 <html lang="en">
-
+<head>
+    <link rel="stylesheet" href="popup_home.css">
+    <link rel="stylesheet" href="popup_settings.css">
+</head>
 <body>
         
    <!-- create animated swith -->
-    <div class="switch">
-        <input type="checkbox" hidden id="switch">
-        <label for="switch"></label>
+   <div id="home-page">
+       <div class="switch">
+           <input type="checkbox" hidden id="switch">
+           <label for="switch"></label>
+       </div>
+       <button id="settingsButton" class="settings" >Settings</button>
+   </div>
+
+<div id="settings-page">
+    <p>ON/OFF HOTKEY</p>
+    <button id="closeButton">X</button>
+    <div id="hotkey" tabindex="0">
+        Enter Key
     </div>
+</div>
 
 </body>
 </html>

@@ -4,8 +4,14 @@ const URLS = ["*://*.youtube.com/*" , "*://*.spotify.com/*"]
 let active;
 chrome.runtime.onMessage.addListener(
     async (message, sender, sendResponse)=> {
-        active = await chrome.storage.local.get('active')
-      if(!active.active)return
+        
+        active = (await chrome.storage.local.get('active')).active
+        
+        if(message.type == "toggle"){
+            active = !active
+            await chrome.storage.local.set({active,active})
+        }
+      if(!active)return
       //send messages to content script
         chrome.tabs.query({url: URLS}, function(tabs) {
             for (let tab of tabs){
