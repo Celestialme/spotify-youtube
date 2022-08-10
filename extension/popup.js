@@ -1,17 +1,22 @@
 
+     let switch_track  = document.getElementById('switch-track');
      let checkbox  = document.getElementById('switch');
      let hotkey  = document.getElementById('hotkey');
      let settingsButton = document.getElementById('settingsButton')
      let closeButton = document.getElementById('closeButton');
      let homePage = document.getElementById('home-page')
      let settingsPage = document.getElementById('settings-page')
+     
      chrome.storage.local.get('active', (result)=> {
         checkbox.checked= result.active;
+        switch_track_background()
       });    
+      
      checkbox.onchange = function(e){
         //send message to background script
         console.log(e.target.checked)
         chrome.storage.local.set({active: e.target.checked});
+         switch_track_background()
 
      }
        chrome.storage.local.get('hotkey', (result)=> {
@@ -42,3 +47,11 @@ window.addEventListener("keydown",async (e) => {
       checkbox.checked = !checkbox.checked
    }
 })
+
+function switch_track_background(){
+if(checkbox.checked){
+   switch_track.style.backgroundColor = '#4ed164';
+}else{
+   switch_track.style.backgroundColor = '#919191';
+}
+}
